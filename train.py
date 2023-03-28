@@ -1,6 +1,6 @@
 from torch_geometric.loader import DataLoader
 import torch
-from utils.train_one_round import train, train_regr,test_regr
+from utils.train_one_round import train, train_regr, test_regr
 from utils.split import split_regr
 from datamodule.datasets.kellerdataset import KellerDataset
 from datamodule.datasets.dravnieks_dataset import DravnieksDataset
@@ -13,26 +13,35 @@ import numpy as np
 import pandas as pd
 from models.nn.GENConv import GCN2Regressor
 
-if __name__=="__main__":
+if __name__ == "__main__":
     num_epoch = 2000
     K = 5
     n_epochs_stop = 100
-    datasetname = "dravnieks" ## either dravnieks or keller
+    datasetname = "dravnieks"  ## either dravnieks or keller
     path = f"results/{datasetname}"
 
     if datasetname == "dravnieks":
-        dataset = DravnieksDataset(mode="cv") # specify dataset of interest
+        dataset = DravnieksDataset(mode="cv")  # specify dataset of interest
     elif datasetname == "keller":
         dataset = KellerDataset(mode="cv")
-    else: 
+    else:
         raise ValueError
-    
-    criterion = torch.nn.HuberLoss() # less sensitive to outliers in data than L2-norm MSE
 
-    pool_dim = 175 # Dimension of the pooling layer
-    hidden_channels = [15, 20, 27,36] # dimensions of each GNN layers
-    fully_connected = [96, 63] # dimension of fully-connected neural net
-    model = GCN2Regressor(node_feature_dim = dataset.num_node_features, edge_feature_dim= dataset.num_edge_features, hidden_channels=hidden_channels, pool_dim=pool_dim, fully_connected_channels=[96, 63], output_channels=dataset.num_classes)
+    criterion = (
+        torch.nn.HuberLoss()
+    )  # less sensitive to outliers in data than L2-norm MSE
+
+    pool_dim = 175  # Dimension of the pooling layer
+    hidden_channels = [15, 20, 27, 36]  # dimensions of each GNN layers
+    fully_connected = [96, 63]  # dimension of fully-connected neural net
+    model = GCN2Regressor(
+        node_feature_dim=dataset.num_node_features,
+        edge_feature_dim=dataset.num_edge_features,
+        hidden_channels=hidden_channels,
+        pool_dim=pool_dim,
+        fully_connected_channels=[96, 63],
+        output_channels=dataset.num_classes,
+    )
 
     seed_everything(432)
 
@@ -61,13 +70,13 @@ if __name__=="__main__":
         lc_valloss, lc_trainloss = [], []
         refloss, epochs_no_improve = 0, 0
         for epoch in tqdm(range(1, num_epoch)):
-            loss, error =train_regr(model, train_loader, criterion=criterion)
+            loss, error = train_regr(model, train_loader, criterion=criterion)
             val_loss, val_error = test_regr(model, val_loader, criterion)
-            lc_valloss+=[abs(val_loss)]
-            lc_trainloss+=[abs(loss.numpy(force=True))]
+            lc_valloss += [abs(val_loss)]
+            lc_trainloss += [abs(loss.numpy(force=True))]
 
-            if val_loss<min_val_loss:
-                epochs_no_improve =0
+            if val_loss < min_val_loss:
+                epochs_no_improve = 0
                 min_val_loss = val_loss
             else:
                 epochs_no_improve += 1
@@ -75,13 +84,13 @@ if __name__=="__main__":
             if epoch > 5 and epochs_no_improve == n_epochs_stop:
                 early_stop = True
                 break
-            
+
         _, error = test_regr(model, test_loader, criterion=criterion)
         error = pd.DataFrame(error)
 
-        expvar = str(error["explained_variance_weighted"]).split('.')[1][:4]
+        expvar = str(error["explained_variance_weighted"]).split(".")[1][:4]
         ## save the well-performed models
-        if error['explained_variance_weighted'].unique()>.130:
+        if error["explained_variance_weighted"].unique() > 0.130:
             print("saved!")
             (pd.DataFrame(error)).to_csv(f"{path}/gnn_regr/{expvar}.csv")
             torch.save(model, f"{path}/gnn_regr/{expvar}.pt")
