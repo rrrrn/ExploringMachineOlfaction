@@ -15,9 +15,10 @@ from joblib import dump
 
 warnings.filterwarnings("ignore")
 
+
 def prepare_data(dataset="dravnieks", numpy_form=True, test=False):
     """[preprocess data to fit the model input format]
-    
+
     Arguments:
         dataset {string} -- name of the dataset we are using: dravnieks or keller
         numpy_form {bool} -- if False, then output the original pandas dataframe
@@ -26,14 +27,15 @@ def prepare_data(dataset="dravnieks", numpy_form=True, test=False):
     Returns:
         [dict] -- {data set, target}
     """
-    data= pd.read_csv(f"data/{dataset.lower()}/raw/imputed_descriptor.csv").iloc[:,1:]
-
-    if dataset.lower()=="dravnieks":
-        target = pd.read_csv(f"data/{dataset.lower()}/raw/{dataset.lower()}_new.csv").iloc[:,1:]
-        target.drop(columns=['IsomericSMILES', 'IUPACName'], inplace=True)
-    elif dataset.lower()=="keller":
-        target = pd.read_csv(f"data/{dataset.lower()}/raw/{dataset.lower()}_pa.csv").iloc[:,1:]
-        target["CID"]=data["CID"].values
+    data = pd.read_csv(f"data/{dataset.lower()}/raw/descriptors.csv").iloc[:, 1:]
+    target = pd.read_csv(
+            f"data/{dataset.lower()}/raw/{dataset.lower()}_pa.csv"
+        ).iloc[:, 1:]
+    
+    if dataset.lower() == "dravnieks":
+        target.drop(columns=["IsomericSMILES", "IUPACName"], inplace=True)
+    elif dataset.lower() == "keller":
+        target["CID"] = data["CID"].values
     else:
         raise ValueError
 
@@ -42,8 +44,8 @@ def prepare_data(dataset="dravnieks", numpy_form=True, test=False):
     if test:
         ovlp = np.load("data/overlapped.npy")
         for cid in ovlp:
-            data = data[data["CID"]!=cid]
-            target = target[target["CID"]!=cid]
+            data = data[data["CID"] != cid]
+            target = target[target["CID"] != cid]
 
     X = data.fillna(0)
 
@@ -56,18 +58,18 @@ def prepare_data(dataset="dravnieks", numpy_form=True, test=False):
         X = X.to_numpy()
         Y = target.to_numpy()
     else:
-        Y =target
-    
-    return {"data":X, "target":Y}
+        Y = target
+
+    return {"data": X, "target": Y}
 
 
 def log(path, file):
     """[Create a log file to record the experiment's logs]
-    
+
     Arguments:
         path {string} -- path to the directory
         file {string} -- file name
-    
+
     Returns:
         [obj] -- [logger that record logs]
     """
@@ -84,13 +86,13 @@ def log(path, file):
     # configure logger
     logging.basicConfig(level=logging.INFO, format=console_logging_format)
     logger = logging.getLogger()
-    
+
     # create a file handler for output file
     handler = logging.FileHandler(log_file)
 
     # set the logging level for log file
     handler.setLevel(logging.INFO)
-    
+
     # create a logging format
     formatter = logging.Formatter(file_logging_format)
     handler.setFormatter(formatter)
@@ -101,68 +103,85 @@ def log(path, file):
     return logger
 
 
-if __name__=='__main__':
-    '''
+if __name__ == "__main__":
+    """
     This script carries out hyperparameter search for classical machine learning methods supported by sklearn library
-    
+
     Model selection criteria: explained-variance, a finite-version of coefficient of determinant (r2_score)
-    
+
     Models are cross-validated on each dataset odor descriptor-wise,
     Best-model, best-parameters, and cross-validation metrics are saved to individual files.
-    '''
+    """
 
     ## model type
-    ml_model = KNeighborsRegressor()
+    modelsets = [LinearRegression(),SVR(), KNeighborsRegressor(), GradientBoostingRegressor(), RandomForestRegressor()]
+    datasetname = "dravnieks"  # specify the dataset, either "dravnieks" or "keller"
+    metricname = ["r2", "neg_mean_squared_error"]
     randomseed = 432
-    model_name=str(ml_model)[:len(str(ml_model))-2]
-    datasetname = "dravnieks" # specify the dataset, either "dravnieks" or "keller"
-    metricname = "explained_variance"
+    cvsplit = KFold(n_splits=5, shuffle=True, random_state=randomseed)
+    for ml_model in modelsets:
+        modelname = str(ml_model)[: len(str(ml_model)) - 2]
 
-    path = f"results/transfer_ml/embeddings_to_{datasetname}"
+        path = f"results/{datasetname}/"
 
-    ## prepare data for grid search
-    data = prepare_data(datasetname,numpy_form=False)
-    X = data["data"]
-    descriptor = np.load("data/retained_descriptors.npy", allow_pickle = True)
-    X = X[descriptor]
-    y = data["target"]
-    col = y.columns
+        ## prepare data for grid search
+        data = prepare_data(datasetname, numpy_form=False)
+        X = data["data"]
+        descriptor = np.load("data/retained_descriptors.npy", allow_pickle=True)
+        X = X[descriptor]
+        y = data["target"]
+        col = y.columns
 
     # X_train, y_train, X_test, y_test = train_test_split(X, y, train_size =.75, random_state = randomseed)
 
-    logger = log(path="logs/", file=model_name.lower()+".logs")
-    logger.info("-"*15+"Start Session!"+"-"*15)
+        logger = log(path="logs/", file=modelname.lower() + ".logs")
+        logger.info("-" * 15 + "Start Session!" + "-" * 15)
 
-    # load grid parameters
-    with open("configs/param_search/"+model_name.lower()+".yaml", 'r') as stream:
-        parameters = yaml.safe_load(stream)
-    
-    if not os.path.isdir(f"{path}/best_models/{model_name}"):
-        os.makedirs(f"{path}/best_models/")
-    if not os.path.isdir(f"{path}/best_params/"):
-        os.makedirs(f"{path}/best_params/")
-    if not os.path.isdir(f"{path}/{metricname}/"):
-        os.makedirs(f"{path}/{metricname}/")
+        # load grid parameters
+        with open("configs/param_search/" + modelname.lower() + ".yaml", "r") as stream:
+            parameters = yaml.safe_load(stream)
 
-    logger.info("{} regressor parameter grid search".format(model_name))
+        if not os.path.isdir(f"{path}/best_models/{modelname}"):
+            os.makedirs(f"{path}/best_models/")
+        if not os.path.isdir(f"{path}/best_params/"):
+            os.makedirs(f"{path}/best_params/")
+        if not os.path.isdir(f"{path}/metrics/"):
+            os.makedirs(f"{path}/metrics/")
 
-    # start grid search
-    best_score, best_param = dict(), dict()
-    for i in tqdm(range(len(y.columns))):
-        descriptor_name = col[i]
-        if "/" in descriptor_name:
-            descriptor_name = (descriptor_name.replace("/","_"))
-        
-        grid_search = GridSearchCV(ml_model, parameters, 
-        cv=KFold(n_splits=5, shuffle=True, random_state=432), scoring=(metricname))
-        grid_search.fit(X, y.iloc[:,i])
-        best_score[descriptor_name] = grid_search.best_score_
-        best_param[descriptor_name] = list(grid_search.best_params_.values())
+        logger.info("{} regressor parameter grid search".format(modelname))
 
-        ## save the best trained model object
-        dump(grid_search.best_estimator_, f"{path}/best_models/{model_name}/{descriptor_name}.joblib")
-    
-    best_param = (pd.DataFrame(best_param, index=list(parameters.keys()))).T
-    best_param.to_csv(f"{path}/best_params/{model_name}_param.csv")
-    best_score = pd.DataFrame(best_score, index=range(1)).T
-    best_score.to_csv(f"{path}/{metricname}/{model_name}_score.csv")
+        # start grid search
+        bestscore,best_param = dict(), dict()
+        for i in tqdm(range(len(y.columns))):
+            descriptor_name = col[i]
+            if "/" in descriptor_name:
+                descriptor_name = descriptor_name.replace("/", "_")
+            
+            bestscore[descriptor_name]=np.zeros(2)
+            grid_search = GridSearchCV(
+                ml_model,
+                parameters,
+                cv=cvsplit,
+                scoring=(metricname),
+                refit="r2",
+                n_jobs=-1
+            )
+            grid_search.fit(X, y.iloc[:, i])
+            results = grid_search.cv_results_
+
+            for i,scorer in enumerate(metricname):
+                best_index = np.nonzero(results["rank_test_%s" % scorer] == 1)[0][0]
+                bestscore[descriptor_name][i] = results["mean_test_%s" % scorer][best_index]
+
+            best_param[descriptor_name] = list(grid_search.best_params_.values())
+
+            ## save the best trained model object
+            dump(
+                grid_search.best_estimator_,
+                f"{path}/best_models/{modelname}/{descriptor_name}.joblib",
+            )
+
+        best_param = (pd.DataFrame(best_param, index=list(parameters.keys()))).T
+        best_param.to_csv(f"{path}/best_params/{modelname}_param.csv")
+        best_score = pd.DataFrame(bestscore, index=metricname).T
+        best_score.to_csv(f"{path}/metrics/{modelname}.csv")

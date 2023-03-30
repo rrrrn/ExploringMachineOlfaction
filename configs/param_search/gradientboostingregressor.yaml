@@ -7,10 +7,7 @@
   learning_rate:
     - 0.1
     - 0.05
-  max_iter:
-    - 100
-    - 50
-  l2_regularization:
+  ccp_alpha:
     - 0
     - 0.15
     - 0.3
