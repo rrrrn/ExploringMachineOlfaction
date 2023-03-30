@@ -1,0 +1,4 @@
+---
+  fit_intercept:
+    - True
+    - False

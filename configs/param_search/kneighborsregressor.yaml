@@ -1,0 +1,14 @@
+---
+  n_neighbors:
+    - 3
+    - 5
+    - 10
+  weights:
+    - "uniform"
+    - "distance"
+  n_jobs:
+    - -1
+  p:
+    - 1
+    - 2
+    - 3
