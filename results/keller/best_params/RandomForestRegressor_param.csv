@@ -1,0 +1,22 @@
+,criterion,max_features,n_jobs,ccp_alpha,random_state
+PLEASANTNESS,0,poisson,log2,-1,432
+EDIBLE ,0,absolute_error,sqrt,-1,432
+BAKERY ,0,poisson,sqrt,-1,432
+SWEET ,0,poisson,sqrt,-1,432
+FRUIT ,0,poisson,sqrt,-1,432
+FISH,0,poisson,sqrt,-1,432
+GARLIC ,0,poisson,sqrt,-1,432
+SPICES ,0,absolute_error,log2,-1,432
+COLD,0,poisson,sqrt,-1,432
+SOUR ,0,poisson,log2,-1,432
+BURNT ,0,squared_error,sqrt,-1,432
+ACID ,0,poisson,sqrt,-1,432
+WARM ,0,friedman_mse,log2,-1,432
+MUSKY ,0.15,friedman_mse,sqrt,-1,432
+SWEATY ,0,poisson,sqrt,-1,432
+AMMONIA_URINOUS,0,poisson,log2,-1,432
+DECAYED,0,friedman_mse,log2,-1,432
+WOOD ,0,poisson,sqrt,-1,432
+GRASS ,0,absolute_error,sqrt,-1,432
+FLOWER ,0,poisson,sqrt,-1,432
+CHEMICAL,0.15,squared_error,log2,-1,432

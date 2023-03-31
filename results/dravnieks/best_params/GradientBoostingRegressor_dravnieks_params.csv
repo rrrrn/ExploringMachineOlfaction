@@ -1,0 +1,147 @@
+,descriptor_name,learning_rate,loss,max_features,n_estimators,n_iter_no_change,random_state
+0,SAUERKRAUT,0.01,huber,sqrt,50,10,432
+0,VANILLA,0.01,squared_error,sqrt,50,50,432
+0,METALLIC,0.05,absolute_error,sqrt,100,50,432
+0,DILL,0.05,huber,log2,200,50,432
+0,HONEY,0.05,quantile,sqrt,50,20,432
+0,ALMOND,0.1,absolute_error,auto,50,50,432
+0,BLACK PEPPER,0.01,huber,auto,50,50,432
+0,MUSK,0.05,absolute_error,log2,100,50,432
+0,"GASOLINE, SOLVENT",0.01,quantile,sqrt,50,10,432
+0,CARDBOARD,0.05,absolute_error,log2,100,10,432
+0,"BUTTERY, FRESH BUTTER",0.1,absolute_error,sqrt,50,50,432
+0,NAIL POLISH REMOVER,0.01,huber,log2,100,10,432
+0,"MINTY, PEPPERMINT",0.1,absolute_error,sqrt,200,50,432
+0,LEATHER,0.1,huber,sqrt,50,10,432
+0,MOLASSES,0.01,absolute_error,sqrt,100,50,432
+0,"PUTRID, FOUL, DECAYED",0.05,huber,log2,50,50,432
+0,DIRTY LINEN,0.05,absolute_error,log2,200,50,432
+0,"BARK,BIRCHBARK",0.05,absolute_error,log2,50,50,432
+0,CEDARWOOD,0.1,absolute_error,log2,50,20,432
+0,ROPE,0.01,quantile,sqrt,100,10,432
+0,"CHERRY, BERRY",0.05,huber,log2,50,10,432
+0,BITTER,0.01,huber,log2,50,10,432
+0,"FRUITY,OTHER THAN CITRUS",0.01,quantile,log2,200,50,432
+0,INCENSE,0.05,squared_error,log2,50,50,432
+0,STRAWBERRY,0.1,absolute_error,log2,200,20,432
+0,GERANIUM LEAVES,0.05,absolute_error,sqrt,200,50,432
+0,BURNT CANDLE,0.05,absolute_error,sqrt,100,10,432
+0,CORK,0.01,huber,sqrt,200,50,432
+0,SOUPY,0.01,absolute_error,auto,50,10,432
+0,MEDICINAL,0.05,squared_error,log2,100,10,432
+0,"MEATY ( COOKED,GOOD)",0.01,absolute_error,auto,200,10,432
+0,BURNT PAPER,0.01,absolute_error,sqrt,200,50,432
+0,RANCID,0.01,huber,sqrt,200,10,432
+0,FRESH GREEN VEGETABLES,0.1,absolute_error,log2,50,20,432
+0,LIGHT,0.05,absolute_error,log2,50,10,432
+0,HEAVY,0.05,absolute_error,log2,50,50,432
+0,EUCALYPTUS,0.1,quantile,auto,50,10,432
+0,SOUR MILK,0.05,absolute_error,sqrt,50,20,432
+0,"TURPENTINE, PINE OIL",0.05,huber,log2,50,10,432
+0,RAISINS,0.05,absolute_error,log2,100,50,432
+0,CLOVE,0.1,huber,log2,50,20,432
+0,CAMPHOR,0.01,quantile,log2,200,20,432
+0,GRAPE JUICE,0.1,absolute_error,auto,100,10,432
+0,PEAR,0.01,quantile,sqrt,100,10,432
+0,"DISINFECTANT, CARBOLIC",0.01,quantile,log2,200,20,432
+0,CARAWAY,0.05,squared_error,log2,50,10,432
+0,"FECAL, LIKE MANURE",0.05,huber,log2,50,10,432
+0,PEACH FRUIT,0.01,squared_error,sqrt,50,50,432
+0,NEW RUBBER,0.05,squared_error,log2,50,10,432
+0,SPICY,0.01,quantile,sqrt,50,50,432
+0,BURNT RUBBER,0.01,huber,auto,200,20,432
+0,"FRUITY,CITRUS",0.05,absolute_error,sqrt,200,50,432
+0,CLEANING FLUID,0.1,quantile,log2,50,10,432
+0,BEERY,0.1,quantile,auto,50,20,432
+0,MOTHBALLS,0.05,absolute_error,sqrt,50,10,432
+0,POPCORN,0.01,quantile,auto,50,50,432
+0,"HERBAL, GREEN,CUTGRASS",0.05,absolute_error,auto,50,50,432
+0,PEANUT BUTTER,0.01,squared_error,sqrt,200,10,432
+0,"MUSTY, EARTHY, MOLDY",0.05,absolute_error,log2,50,50,432
+0,"WET WOOL,WET DOG",0.1,squared_error,sqrt,50,10,432
+0,SEWER,0.05,squared_error,sqrt,100,20,432
+0,"NUTTY, WALNUT ETC.",0.01,squared_error,log2,100,50,432
+0,SULFIDIC,0.1,quantile,sqrt,50,10,432
+0,"APPLE, FRUIT",0.01,quantile,log2,200,10,432
+0,HOUSEHOLD GAS,0.05,huber,auto,100,20,432
+0,ANIMAL,0.05,quantile,sqrt,50,10,432
+0,RAW CUCUMBER,0.1,absolute_error,auto,100,20,432
+0,AMMONIA,0.01,huber,auto,50,50,432
+0,VARNISH,0.01,quantile,auto,50,10,432
+0,"ETHERISH, ANAESTHETIC",0.01,quantile,log2,100,50,432
+0,"CANTALOUPE, HONEYDEW MELON",0.05,absolute_error,auto,100,50,432
+0,FISHY,0.1,huber,sqrt,100,50,432
+0,SOOTY,0.01,huber,sqrt,100,10,432
+0,"EGGY, FRESH EGGS",0.05,absolute_error,log2,50,10,432
+0,ORANGE,0.05,absolute_error,sqrt,100,50,432
+0,"OAK WOOD,COGNAC",0.01,absolute_error,auto,200,50,432
+0,"COOL,COOLING",0.05,huber,log2,50,50,432
+0,COFFEE,0.01,huber,log2,100,50,432
+0,COOKED VEGETABLES,0.05,absolute_error,sqrt,50,50,432
+0,"SOUR, VINEGAR",0.05,huber,sqrt,200,10,432
+0,CHEMICAL,0.05,huber,log2,50,50,432
+0,FRAGRANT,0.05,absolute_error,log2,50,50,432
+0,CRUSHED WEEDS,0.1,absolute_error,auto,200,50,432
+0,WET PAPER,0.01,absolute_error,log2,50,20,432
+0,"WOODY, RESINOUS",0.1,absolute_error,log2,50,20,432
+0,RAW POTATO,0.1,absolute_error,sqrt,200,20,432
+0,ALCOHOLIC,0.01,quantile,log2,50,50,432
+0,"ANISE, LICORICE",0.01,huber,auto,200,20,432
+0,BEANY,0.05,absolute_error,auto,200,50,432
+0,CHEESY,0.01,quantile,log2,50,10,432
+0,CINNAMON,0.05,absolute_error,log2,50,50,432
+0,"FERMENTED, ROTTEN FRUIT",0.05,squared_error,log2,50,10,432
+0,FLORAL,0.05,absolute_error,auto,200,20,432
+0,CAT URINE,0.05,huber,log2,50,10,432
+0,GRAPEFRUIT,0.05,absolute_error,log2,100,50,432
+0,CHALKY,0.01,huber,auto,50,10,432
+0,MAPLE SYRUP,0.01,absolute_error,sqrt,50,10,432
+0,VIOLETS,0.1,absolute_error,sqrt,50,50,432
+0,WARM,0.1,quantile,log2,50,20,432
+0,GRAINY (AS GRAIN),0.1,absolute_error,log2,200,50,432
+0,CHOCOLATE,0.01,huber,sqrt,200,50,432
+0,YEASTY,0.01,quantile,log2,50,50,432
+0,SWEATY,0.05,huber,log2,50,50,432
+0,KEROSENE,0.1,absolute_error,log2,100,20,432
+0,"KIPPERY,SMOKED FISH",0.05,huber,sqrt,200,50,432
+0,"GARLIC, ONION",0.05,quantile,log2,50,50,432
+0,SWEET,0.1,squared_error,log2,50,10,432
+0,HAY,0.1,absolute_error,sqrt,50,10,432
+0,BANANA,0.01,huber,auto,50,20,432
+0,STALE TOBACCO SMOKE,0.1,quantile,sqrt,200,10,432
+0,PAINT,0.05,absolute_error,auto,200,20,432
+0,CELERY,0.1,absolute_error,sqrt,50,20,432
+0,MALTY,0.05,absolute_error,log2,50,20,432
+0,GREEN PEPPER,0.01,huber,log2,100,10,432
+0,URINE,0.1,absolute_error,auto,50,10,432
+0,BURNT MILK,0.01,absolute_error,sqrt,50,50,432
+0,"BLOOD, RAW MEAT",0.05,huber,sqrt,100,20,432
+0,BAKERY (FRESH BREAD),0.01,squared_error,auto,50,50,432
+0,"SHARP, PUNGENT, ACID",0.05,huber,log2,50,10,432
+0,STALE,0.1,absolute_error,log2,100,20,432
+0,SICKENING,0.05,squared_error,sqrt,50,50,432
+0,"BURNT,SMOKY",0.01,quantile,log2,200,20,432
+0,CADAVEROUS,0.05,squared_error,log2,50,10,432
+0,"OILY, FATTY",0.01,huber,log2,100,10,432
+0,PERFUMERY,0.01,huber,log2,200,50,432
+0,LAUREL LEAVES,0.01,huber,auto,200,50,432
+0,CREOSOTE,0.1,absolute_error,auto,100,50,432
+0,COLOGNE,0.1,quantile,log2,50,20,432
+0,FRIED CHICKEN,0.05,huber,auto,50,20,432
+0,CRUSHED GRASS,0.01,quantile,log2,50,50,432
+0,MUSHROOM,0.05,absolute_error,log2,50,50,432
+0,LEMON,0.01,squared_error,log2,100,50,432
+0,FRESH TOBACCO SMOKE,0.05,huber,log2,50,10,432
+0,TEA LEAVES,0.05,quantile,auto,200,50,432
+0,CARAMEL,0.05,squared_error,sqrt,100,10,432
+0,SOAPY,0.05,squared_error,log2,50,20,432
+0,TAR,0.01,squared_error,sqrt,100,20,432
+0,ROSE,0.05,absolute_error,log2,100,50,432
+0,MOUSE,0.05,absolute_error,sqrt,100,50,432
+0,PINEAPPLE,0.1,huber,sqrt,50,10,432
+0,LAVENDER,0.01,huber,log2,200,10,432
+0,"DRY, POWDERY",0.05,absolute_error,auto,50,50,432
+0,AROMATIC,0.05,huber,sqrt,50,20,432
+0,SEASONING FOR MEAT,0.01,squared_error,sqrt,50,10,432
+0,"SEMINAL, SPERM-LIKE",0.1,absolute_error,sqrt,50,10,432
+0,COCONUT,0.01,huber,sqrt,200,10,432

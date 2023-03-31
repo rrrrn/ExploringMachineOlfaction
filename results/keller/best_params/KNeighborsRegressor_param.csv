@@ -1,0 +1,22 @@
+,n_neighbors,weights,n_jobs,p
+PLEASANTNESS,-1,10,1,distance
+EDIBLE ,-1,10,1,distance
+BAKERY ,-1,10,1,distance
+SWEET ,-1,10,1,distance
+FRUIT ,-1,10,1,distance
+FISH,-1,10,1,distance
+GARLIC ,-1,10,1,distance
+SPICES ,-1,10,1,distance
+COLD,-1,10,2,uniform
+SOUR ,-1,10,1,distance
+BURNT ,-1,10,1,distance
+ACID ,-1,10,1,distance
+WARM ,-1,10,1,uniform
+MUSKY ,-1,10,1,distance
+SWEATY ,-1,10,1,distance
+AMMONIA_URINOUS,-1,10,1,distance
+DECAYED,-1,10,1,distance
+WOOD ,-1,10,1,distance
+GRASS ,-1,10,1,distance
+FLOWER ,-1,10,1,distance
+CHEMICAL,-1,10,1,uniform

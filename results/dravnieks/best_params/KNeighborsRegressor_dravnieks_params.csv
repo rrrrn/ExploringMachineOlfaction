@@ -1,0 +1,147 @@
+,descriptor_name,n_neighbors,p,weights
+0,SAUERKRAUT,10,3,distance
+0,VANILLA,3,2,distance
+0,METALLIC,10,1,uniform
+0,DILL,10,1,distance
+0,HONEY,3,2,uniform
+0,ALMOND,10,2,distance
+0,BLACK PEPPER,10,1,uniform
+0,MUSK,10,1,uniform
+0,"GASOLINE, SOLVENT",10,3,uniform
+0,CARDBOARD,10,1,uniform
+0,"BUTTERY, FRESH BUTTER",10,2,uniform
+0,NAIL POLISH REMOVER,10,3,uniform
+0,"MINTY, PEPPERMINT",10,2,uniform
+0,LEATHER,10,3,uniform
+0,MOLASSES,10,1,distance
+0,"PUTRID, FOUL, DECAYED",10,2,distance
+0,DIRTY LINEN,10,2,distance
+0,"BARK,BIRCHBARK",10,3,uniform
+0,CEDARWOOD,10,2,uniform
+0,ROPE,10,1,uniform
+0,"CHERRY, BERRY",10,1,distance
+0,BITTER,10,2,uniform
+0,"FRUITY,OTHER THAN CITRUS",10,1,distance
+0,INCENSE,10,1,uniform
+0,STRAWBERRY,10,1,distance
+0,GERANIUM LEAVES,10,2,uniform
+0,BURNT CANDLE,10,1,distance
+0,CORK,10,1,distance
+0,SOUPY,10,1,uniform
+0,MEDICINAL,10,2,uniform
+0,"MEATY ( COOKED,GOOD)",10,1,uniform
+0,BURNT PAPER,10,1,distance
+0,RANCID,10,3,distance
+0,FRESH GREEN VEGETABLES,10,2,uniform
+0,LIGHT,10,1,distance
+0,HEAVY,10,1,distance
+0,EUCALYPTUS,10,2,uniform
+0,SOUR MILK,10,3,uniform
+0,"TURPENTINE, PINE OIL",10,3,uniform
+0,RAISINS,10,3,uniform
+0,CLOVE,10,3,uniform
+0,CAMPHOR,10,3,uniform
+0,GRAPE JUICE,10,1,uniform
+0,PEAR,10,2,distance
+0,"DISINFECTANT, CARBOLIC",10,3,uniform
+0,CARAWAY,10,3,uniform
+0,"FECAL, LIKE MANURE",10,3,distance
+0,PEACH FRUIT,10,2,distance
+0,NEW RUBBER,5,1,uniform
+0,SPICY,10,1,uniform
+0,BURNT RUBBER,10,2,uniform
+0,"FRUITY,CITRUS",10,1,distance
+0,CLEANING FLUID,10,3,uniform
+0,BEERY,10,3,uniform
+0,MOTHBALLS,10,1,distance
+0,POPCORN,10,1,distance
+0,"HERBAL, GREEN,CUTGRASS",10,3,uniform
+0,PEANUT BUTTER,10,1,uniform
+0,"MUSTY, EARTHY, MOLDY",10,1,distance
+0,"WET WOOL,WET DOG",10,1,uniform
+0,SEWER,10,2,distance
+0,"NUTTY, WALNUT ETC.",10,1,distance
+0,SULFIDIC,10,1,distance
+0,"APPLE, FRUIT",5,1,uniform
+0,HOUSEHOLD GAS,10,3,uniform
+0,ANIMAL,10,2,distance
+0,RAW CUCUMBER,5,1,uniform
+0,AMMONIA,10,1,distance
+0,VARNISH,10,3,uniform
+0,"ETHERISH, ANAESTHETIC",10,3,uniform
+0,"CANTALOUPE, HONEYDEW MELON",10,1,distance
+0,FISHY,10,2,distance
+0,SOOTY,10,1,uniform
+0,"EGGY, FRESH EGGS",10,1,uniform
+0,ORANGE,10,1,distance
+0,"OAK WOOD,COGNAC",10,2,distance
+0,"COOL,COOLING",10,2,uniform
+0,COFFEE,3,1,distance
+0,COOKED VEGETABLES,5,1,uniform
+0,"SOUR, VINEGAR",10,3,uniform
+0,CHEMICAL,10,3,uniform
+0,FRAGRANT,10,1,uniform
+0,CRUSHED WEEDS,10,2,uniform
+0,WET PAPER,10,1,uniform
+0,"WOODY, RESINOUS",10,3,distance
+0,RAW POTATO,10,3,uniform
+0,ALCOHOLIC,10,2,distance
+0,"ANISE, LICORICE",10,3,uniform
+0,BEANY,10,3,uniform
+0,CHEESY,10,3,uniform
+0,CINNAMON,5,3,uniform
+0,"FERMENTED, ROTTEN FRUIT",10,1,distance
+0,FLORAL,10,1,uniform
+0,CAT URINE,10,3,distance
+0,GRAPEFRUIT,10,1,distance
+0,CHALKY,10,3,uniform
+0,MAPLE SYRUP,10,1,distance
+0,VIOLETS,10,1,uniform
+0,WARM,10,1,distance
+0,GRAINY (AS GRAIN),10,3,uniform
+0,CHOCOLATE,10,1,uniform
+0,YEASTY,10,2,uniform
+0,SWEATY,10,1,uniform
+0,KEROSENE,10,1,uniform
+0,"KIPPERY,SMOKED FISH",3,3,uniform
+0,"GARLIC, ONION",5,1,uniform
+0,SWEET,10,1,distance
+0,HAY,10,1,distance
+0,BANANA,10,1,uniform
+0,STALE TOBACCO SMOKE,10,3,distance
+0,PAINT,10,3,uniform
+0,CELERY,10,1,uniform
+0,MALTY,10,1,distance
+0,GREEN PEPPER,10,2,uniform
+0,URINE,10,1,distance
+0,BURNT MILK,10,1,uniform
+0,"BLOOD, RAW MEAT",10,1,distance
+0,BAKERY (FRESH BREAD),10,1,uniform
+0,"SHARP, PUNGENT, ACID",10,3,uniform
+0,STALE,10,1,distance
+0,SICKENING,10,2,distance
+0,"BURNT,SMOKY",10,1,distance
+0,CADAVEROUS,10,2,distance
+0,"OILY, FATTY",10,1,uniform
+0,PERFUMERY,10,1,uniform
+0,LAUREL LEAVES,10,3,distance
+0,CREOSOTE,10,3,uniform
+0,COLOGNE,5,1,uniform
+0,FRIED CHICKEN,10,1,uniform
+0,CRUSHED GRASS,10,1,uniform
+0,MUSHROOM,10,1,uniform
+0,LEMON,10,1,distance
+0,FRESH TOBACCO SMOKE,10,2,uniform
+0,TEA LEAVES,10,3,uniform
+0,CARAMEL,5,1,distance
+0,SOAPY,10,2,distance
+0,TAR,10,3,uniform
+0,ROSE,10,1,uniform
+0,MOUSE,10,2,uniform
+0,PINEAPPLE,10,1,uniform
+0,LAVENDER,5,1,uniform
+0,"DRY, POWDERY",10,2,uniform
+0,AROMATIC,10,1,uniform
+0,SEASONING FOR MEAT,10,1,uniform
+0,"SEMINAL, SPERM-LIKE",10,1,distance
+0,COCONUT,3,2,uniform

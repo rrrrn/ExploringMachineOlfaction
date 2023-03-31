@@ -1,0 +1,22 @@
+,kernel,C,epsilon
+PLEASANTNESS,10,0.1,rbf
+EDIBLE ,100,1,rbf
+BAKERY ,100,1,poly
+SWEET ,10,1,rbf
+FRUIT ,100,0.1,rbf
+FISH,100,1,rbf
+GARLIC ,100,1,rbf
+SPICES ,100,1,rbf
+COLD,10,1,rbf
+SOUR ,10,1,rbf
+BURNT ,100,0.1,rbf
+ACID ,1,1,rbf
+WARM ,1,1,rbf
+MUSKY ,10,0.01,rbf
+SWEATY ,10,1,rbf
+AMMONIA_URINOUS,10,1,rbf
+DECAYED,10,1,rbf
+WOOD ,10,1,poly
+GRASS ,100,1,rbf
+FLOWER ,10,1,rbf
+CHEMICAL,100,1,rbf

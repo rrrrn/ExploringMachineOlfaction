@@ -1,0 +1,147 @@
+,descriptor_name,criterion,max_features,n_estimators,random_state
+0,SAUERKRAUT,poisson,log2,200,432
+0,VANILLA,poisson,log2,200,432
+0,METALLIC,poisson,log2,200,432
+0,DILL,poisson,log2,200,432
+0,HONEY,poisson,log2,200,432
+0,ALMOND,poisson,log2,200,432
+0,BLACK PEPPER,poisson,log2,200,432
+0,MUSK,poisson,log2,200,432
+0,"GASOLINE, SOLVENT",poisson,log2,200,432
+0,CARDBOARD,poisson,log2,200,432
+0,"BUTTERY, FRESH BUTTER",poisson,log2,200,432
+0,NAIL POLISH REMOVER,poisson,log2,200,432
+0,"MINTY, PEPPERMINT",poisson,log2,200,432
+0,LEATHER,poisson,log2,200,432
+0,MOLASSES,poisson,log2,200,432
+0,"PUTRID, FOUL, DECAYED",poisson,log2,200,432
+0,DIRTY LINEN,poisson,log2,200,432
+0,"BARK,BIRCHBARK",poisson,log2,200,432
+0,CEDARWOOD,poisson,log2,200,432
+0,ROPE,poisson,log2,200,432
+0,"CHERRY, BERRY",poisson,log2,200,432
+0,BITTER,poisson,log2,200,432
+0,"FRUITY,OTHER THAN CITRUS",poisson,log2,200,432
+0,INCENSE,poisson,log2,200,432
+0,STRAWBERRY,poisson,log2,200,432
+0,GERANIUM LEAVES,poisson,log2,200,432
+0,BURNT CANDLE,poisson,log2,200,432
+0,CORK,poisson,log2,200,432
+0,SOUPY,poisson,log2,200,432
+0,MEDICINAL,poisson,log2,200,432
+0,"MEATY ( COOKED,GOOD)",poisson,log2,200,432
+0,BURNT PAPER,poisson,log2,200,432
+0,RANCID,poisson,log2,200,432
+0,FRESH GREEN VEGETABLES,poisson,log2,200,432
+0,LIGHT,poisson,log2,200,432
+0,HEAVY,poisson,log2,200,432
+0,EUCALYPTUS,poisson,log2,200,432
+0,SOUR MILK,poisson,log2,200,432
+0,"TURPENTINE, PINE OIL",poisson,log2,200,432
+0,RAISINS,poisson,log2,200,432
+0,CLOVE,poisson,log2,200,432
+0,CAMPHOR,poisson,log2,200,432
+0,GRAPE JUICE,poisson,log2,200,432
+0,PEAR,poisson,log2,200,432
+0,"DISINFECTANT, CARBOLIC",poisson,log2,200,432
+0,CARAWAY,poisson,log2,200,432
+0,"FECAL, LIKE MANURE",poisson,log2,200,432
+0,PEACH FRUIT,poisson,log2,200,432
+0,NEW RUBBER,poisson,log2,200,432
+0,SPICY,poisson,log2,200,432
+0,BURNT RUBBER,poisson,log2,200,432
+0,"FRUITY,CITRUS",poisson,log2,200,432
+0,CLEANING FLUID,poisson,log2,200,432
+0,BEERY,poisson,log2,200,432
+0,MOTHBALLS,poisson,log2,200,432
+0,POPCORN,poisson,log2,200,432
+0,"HERBAL, GREEN,CUTGRASS",poisson,log2,200,432
+0,PEANUT BUTTER,poisson,log2,200,432
+0,"MUSTY, EARTHY, MOLDY",poisson,log2,200,432
+0,"WET WOOL,WET DOG",poisson,log2,200,432
+0,SEWER,poisson,log2,200,432
+0,"NUTTY, WALNUT ETC.",poisson,log2,200,432
+0,SULFIDIC,poisson,log2,200,432
+0,"APPLE, FRUIT",poisson,log2,200,432
+0,HOUSEHOLD GAS,poisson,log2,200,432
+0,ANIMAL,poisson,log2,200,432
+0,RAW CUCUMBER,poisson,log2,200,432
+0,AMMONIA,poisson,log2,200,432
+0,VARNISH,poisson,log2,200,432
+0,"ETHERISH, ANAESTHETIC",poisson,log2,200,432
+0,"CANTALOUPE, HONEYDEW MELON",poisson,log2,200,432
+0,FISHY,poisson,log2,200,432
+0,SOOTY,poisson,log2,200,432
+0,"EGGY, FRESH EGGS",poisson,log2,200,432
+0,ORANGE,poisson,log2,200,432
+0,"OAK WOOD,COGNAC",poisson,log2,200,432
+0,"COOL,COOLING",poisson,log2,200,432
+0,COFFEE,poisson,log2,200,432
+0,COOKED VEGETABLES,poisson,log2,200,432
+0,"SOUR, VINEGAR",poisson,log2,200,432
+0,CHEMICAL,poisson,log2,200,432
+0,FRAGRANT,poisson,log2,200,432
+0,CRUSHED WEEDS,poisson,log2,200,432
+0,WET PAPER,poisson,log2,200,432
+0,"WOODY, RESINOUS",poisson,log2,200,432
+0,RAW POTATO,poisson,log2,200,432
+0,ALCOHOLIC,poisson,log2,200,432
+0,"ANISE, LICORICE",poisson,log2,200,432
+0,BEANY,poisson,log2,200,432
+0,CHEESY,poisson,log2,200,432
+0,CINNAMON,poisson,log2,200,432
+0,"FERMENTED, ROTTEN FRUIT",poisson,log2,200,432
+0,FLORAL,poisson,log2,200,432
+0,CAT URINE,poisson,log2,200,432
+0,GRAPEFRUIT,poisson,log2,200,432
+0,CHALKY,poisson,log2,200,432
+0,MAPLE SYRUP,poisson,log2,200,432
+0,VIOLETS,poisson,log2,200,432
+0,WARM,poisson,log2,200,432
+0,GRAINY (AS GRAIN),poisson,log2,200,432
+0,CHOCOLATE,poisson,log2,200,432
+0,YEASTY,poisson,log2,200,432
+0,SWEATY,poisson,log2,200,432
+0,KEROSENE,poisson,log2,200,432
+0,"KIPPERY,SMOKED FISH",poisson,log2,200,432
+0,"GARLIC, ONION",poisson,log2,200,432
+0,SWEET,poisson,log2,200,432
+0,HAY,poisson,log2,200,432
+0,BANANA,poisson,log2,200,432
+0,STALE TOBACCO SMOKE,poisson,log2,200,432
+0,PAINT,poisson,log2,200,432
+0,CELERY,poisson,log2,200,432
+0,MALTY,poisson,log2,200,432
+0,GREEN PEPPER,poisson,log2,200,432
+0,URINE,poisson,log2,200,432
+0,BURNT MILK,poisson,log2,200,432
+0,"BLOOD, RAW MEAT",poisson,log2,200,432
+0,BAKERY (FRESH BREAD),poisson,log2,200,432
+0,"SHARP, PUNGENT, ACID",poisson,log2,200,432
+0,STALE,poisson,log2,200,432
+0,SICKENING,poisson,log2,200,432
+0,"BURNT,SMOKY",poisson,log2,200,432
+0,CADAVEROUS,poisson,log2,200,432
+0,"OILY, FATTY",poisson,log2,200,432
+0,PERFUMERY,poisson,log2,200,432
+0,LAUREL LEAVES,poisson,log2,200,432
+0,CREOSOTE,poisson,log2,200,432
+0,COLOGNE,poisson,log2,200,432
+0,FRIED CHICKEN,poisson,log2,200,432
+0,CRUSHED GRASS,poisson,log2,200,432
+0,MUSHROOM,poisson,log2,200,432
+0,LEMON,poisson,log2,200,432
+0,FRESH TOBACCO SMOKE,poisson,log2,200,432
+0,TEA LEAVES,poisson,log2,200,432
+0,CARAMEL,poisson,log2,200,432
+0,SOAPY,poisson,log2,200,432
+0,TAR,poisson,log2,200,432
+0,ROSE,poisson,log2,200,432
+0,MOUSE,poisson,log2,200,432
+0,PINEAPPLE,poisson,log2,200,432
+0,LAVENDER,poisson,log2,200,432
+0,"DRY, POWDERY",poisson,log2,200,432
+0,AROMATIC,poisson,log2,200,432
+0,SEASONING FOR MEAT,poisson,log2,200,432
+0,"SEMINAL, SPERM-LIKE",poisson,log2,200,432
+0,COCONUT,poisson,log2,200,432

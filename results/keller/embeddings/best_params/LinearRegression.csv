@@ -1,0 +1,22 @@
+,fit_intercept
+PLEASANTNESS,True
+EDIBLE ,True
+BAKERY ,True
+SWEET ,True
+FRUIT ,True
+FISH,False
+GARLIC ,False
+SPICES ,True
+COLD,True
+SOUR ,True
+BURNT ,False
+ACID ,False
+WARM ,True
+MUSKY ,True
+SWEATY ,True
+AMMONIA_URINOUS,False
+DECAYED,False
+WOOD ,False
+GRASS ,True
+FLOWER ,True
+CHEMICAL,False
