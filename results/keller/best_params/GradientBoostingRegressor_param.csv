@@ -1,20 +1,20 @@
 ,loss,learning_rate,ccp_alpha,n_iter_no_change,random_state
 PLEASANTNESS,0.15,0.1,squared_error,15,432
-EDIBLE ,0.15,0.1,squared_error,10,432
+EDIBLE ,0,0.1,absolute_error,15,432
 BAKERY ,0,0.1,squared_error,15,432
 SWEET ,0,0.1,squared_error,15,432
 FRUIT ,0,0.1,squared_error,15,432
-FISH,0,0.05,huber,15,432
+FISH,0,0.1,absolute_error,15,432
 GARLIC ,0,0.1,absolute_error,10,432
 SPICES ,0,0.05,huber,15,432
 COLD,0,0.05,absolute_error,15,432
 SOUR ,0,0.05,huber,15,432
-BURNT ,0,0.05,huber,5,432
+BURNT ,0,0.05,absolute_error,10,432
 ACID ,0,0.05,huber,10,432
 WARM ,0,0.1,squared_error,5,432
-MUSKY ,0,0.05,huber,5,432
+MUSKY ,0,0.1,absolute_error,10,432
 SWEATY ,0,0.1,squared_error,15,432
-AMMONIA_URINOUS,0,0.05,huber,15,432
+AMMONIA_URINOUS,0,0.05,absolute_error,15,432
 DECAYED,0,0.05,huber,10,432
 WOOD ,0,0.1,absolute_error,15,432
 GRASS ,0,0.1,squared_error,10,432

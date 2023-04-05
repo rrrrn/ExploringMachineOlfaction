@@ -1,19 +1,19 @@
 ,criterion,max_features,n_jobs,ccp_alpha,random_state
-"FRUITY,CITRUS",0.3,absolute_error,sqrt,-1,432
-LEMON,0.3,absolute_error,log2,-1,432
-GRAPEFRUIT,0.15,absolute_error,sqrt,-1,432
+"FRUITY,CITRUS",0.3,friedman_mse,sqrt,-1,432
+LEMON,0,friedman_mse,log2,-1,432
+GRAPEFRUIT,0.3,absolute_error,sqrt,-1,432
 ORANGE,0.3,absolute_error,sqrt,-1,432
-"FRUITY,OTHER THAN CITRUS",0.15,absolute_error,sqrt,-1,432
+"FRUITY,OTHER THAN CITRUS",0,absolute_error,sqrt,-1,432
 PINEAPPLE,0,absolute_error,sqrt,-1,432
-GRAPE JUICE,0.15,absolute_error,sqrt,-1,432
+GRAPE JUICE,0.15,absolute_error,log2,-1,432
 STRAWBERRY,0,poisson,sqrt,-1,432
-"APPLE, FRUIT",0.15,squared_error,log2,-1,432
+"APPLE, FRUIT",0.15,absolute_error,sqrt,-1,432
 PEAR,0.15,friedman_mse,sqrt,-1,432
 "CANTALOUPE, HONEYDEW MELON",0.3,poisson,sqrt,-1,432
 PEACH FRUIT,0,friedman_mse,log2,-1,432
-BANANA,0.15,absolute_error,sqrt,-1,432
+BANANA,0.3,absolute_error,sqrt,-1,432
 FLORAL,0.3,absolute_error,sqrt,-1,432
-ROSE,0.3,absolute_error,sqrt,-1,432
+ROSE,0.3,absolute_error,log2,-1,432
 VIOLETS,0.15,absolute_error,sqrt,-1,432
 LAVENDER,0.15,absolute_error,sqrt,-1,432
 COLOGNE,0.15,poisson,sqrt,-1,432
@@ -26,18 +26,18 @@ HONEY,0.15,friedman_mse,log2,-1,432
 ALMOND,0.3,absolute_error,log2,-1,432
 NAIL POLISH REMOVER,0.15,absolute_error,log2,-1,432
 "NUTTY, WALNUT ETC.",0.3,absolute_error,sqrt,-1,432
-SPICY,0.3,poisson,sqrt,-1,432
+SPICY,0.3,squared_error,log2,-1,432
 CLOVE,0.3,absolute_error,log2,-1,432
 CINNAMON,0.3,absolute_error,log2,-1,432
-LAUREL LEAVES,0.15,poisson,sqrt,-1,432
+LAUREL LEAVES,0.15,absolute_error,sqrt,-1,432
 TEA LEAVES,0.15,squared_error,log2,-1,432
-SEASONING FOR MEAT,0.3,poisson,log2,-1,432
-BLACK PEPPER,0.15,absolute_error,sqrt,-1,432
+SEASONING FOR MEAT,0.3,absolute_error,sqrt,-1,432
+BLACK PEPPER,0.3,poisson,log2,-1,432
 GREEN PEPPER,0.15,absolute_error,sqrt,-1,432
 DILL,0.15,poisson,sqrt,-1,432
 CARAWAY,0,poisson,log2,-1,432
-"OAK WOOD,COGNAC",0.3,absolute_error,sqrt,-1,432
-"WOODY, RESINOUS",0.3,poisson,sqrt,-1,432
+"OAK WOOD,COGNAC",0.15,poisson,sqrt,-1,432
+"WOODY, RESINOUS",0.15,poisson,sqrt,-1,432
 CEDARWOOD,0.3,poisson,sqrt,-1,432
 MOTHBALLS,0.3,absolute_error,log2,-1,432
 "MINTY, PEPPERMINT",0.3,poisson,log2,-1,432
@@ -47,72 +47,72 @@ CHOCOLATE,0.3,absolute_error,log2,-1,432
 VANILLA,0.3,absolute_error,log2,-1,432
 SWEET,0.15,absolute_error,log2,-1,432
 MAPLE SYRUP,0.3,absolute_error,sqrt,-1,432
-CARAMEL,0.15,absolute_error,sqrt,-1,432
+CARAMEL,0.3,absolute_error,sqrt,-1,432
 MALTY,0.15,absolute_error,log2,-1,432
 RAISINS,0.3,absolute_error,sqrt,-1,432
-MOLASSES,0.3,poisson,log2,-1,432
+MOLASSES,0.15,absolute_error,sqrt,-1,432
 COCONUT,0.3,absolute_error,sqrt,-1,432
 "ANISE, LICORICE",0.3,absolute_error,log2,-1,432
-ALCOHOLIC,0.3,absolute_error,sqrt,-1,432
+ALCOHOLIC,0.3,absolute_error,log2,-1,432
 "ETHERISH, ANAESTHETIC",0.3,absolute_error,log2,-1,432
 CLEANING FLUID,0.15,poisson,sqrt,-1,432
-"GASOLINE, SOLVENT",0.3,poisson,log2,-1,432
+"GASOLINE, SOLVENT",0.3,absolute_error,log2,-1,432
 "TURPENTINE, PINE OIL",0.3,absolute_error,log2,-1,432
 GERANIUM LEAVES,0.15,poisson,sqrt,-1,432
-CELERY,0.3,poisson,sqrt,-1,432
-FRESH GREEN VEGETABLES,0.3,poisson,log2,-1,432
+CELERY,0.3,absolute_error,sqrt,-1,432
+FRESH GREEN VEGETABLES,0.15,absolute_error,log2,-1,432
 CRUSHED WEEDS,0.3,poisson,log2,-1,432
-CRUSHED GRASS,0.3,poisson,sqrt,-1,432
+CRUSHED GRASS,0.15,absolute_error,sqrt,-1,432
 "HERBAL, GREEN,CUTGRASS",0.3,poisson,log2,-1,432
-RAW CUCUMBER,0.3,poisson,sqrt,-1,432
-HAY,0.3,poisson,sqrt,-1,432
-GRAINY (AS GRAIN),0.15,absolute_error,log2,-1,432
-YEASTY,0.15,friedman_mse,sqrt,-1,432
+RAW CUCUMBER,0.15,absolute_error,log2,-1,432
+HAY,0.3,absolute_error,sqrt,-1,432
+GRAINY (AS GRAIN),0.3,poisson,log2,-1,432
+YEASTY,0,absolute_error,log2,-1,432
 BAKERY (FRESH BREAD),0.3,absolute_error,sqrt,-1,432
 SOUR MILK,0.3,absolute_error,sqrt,-1,432
 "FERMENTED, ROTTEN FRUIT",0.15,squared_error,log2,-1,432
-BEERY,0.15,squared_error,sqrt,-1,432
-SOAPY,0.15,poisson,log2,-1,432
+BEERY,0.3,poisson,log2,-1,432
+SOAPY,0.3,absolute_error,log2,-1,432
 LEATHER,0.3,friedman_mse,sqrt,-1,432
-CARDBOARD,0.15,absolute_error,sqrt,-1,432
+CARDBOARD,0.3,squared_error,sqrt,-1,432
 ROPE,0,poisson,sqrt,-1,432
 WET PAPER,0.15,friedman_mse,sqrt,-1,432
-"WET WOOL,WET DOG",0.15,poisson,log2,-1,432
+"WET WOOL,WET DOG",0.15,absolute_error,sqrt,-1,432
 DIRTY LINEN,0,poisson,sqrt,-1,432
-STALE,0.15,friedman_mse,log2,-1,432
+STALE,0.3,friedman_mse,log2,-1,432
 "MUSTY, EARTHY, MOLDY",0,squared_error,sqrt,-1,432
-RAW POTATO,0.3,poisson,log2,-1,432
-MOUSE,0.15,friedman_mse,sqrt,-1,432
+RAW POTATO,0.15,absolute_error,log2,-1,432
+MOUSE,0.15,squared_error,sqrt,-1,432
 MUSHROOM,0.3,absolute_error,sqrt,-1,432
 PEANUT BUTTER,0.3,absolute_error,log2,-1,432
 BEANY,0.15,squared_error,sqrt,-1,432
 "EGGY, FRESH EGGS",0.15,squared_error,sqrt,-1,432
-"BARK,BIRCHBARK",0.3,poisson,log2,-1,432
+"BARK,BIRCHBARK",0.3,poisson,sqrt,-1,432
 CORK,0,absolute_error,log2,-1,432
 "BURNT,SMOKY",0.3,absolute_error,sqrt,-1,432
-FRESH TOBACCO SMOKE,0.3,poisson,sqrt,-1,432
+FRESH TOBACCO SMOKE,0.15,poisson,sqrt,-1,432
 INCENSE,0.15,poisson,sqrt,-1,432
-COFFEE,0.15,absolute_error,sqrt,-1,432
-STALE TOBACCO SMOKE,0,absolute_error,log2,-1,432
-BURNT PAPER,0.3,poisson,log2,-1,432
-BURNT MILK,0.15,poisson,log2,-1,432
-BURNT RUBBER,0.3,poisson,sqrt,-1,432
+COFFEE,0.3,poisson,log2,-1,432
+STALE TOBACCO SMOKE,0.15,absolute_error,sqrt,-1,432
+BURNT PAPER,0.3,absolute_error,log2,-1,432
+BURNT MILK,0.15,poisson,sqrt,-1,432
+BURNT RUBBER,0.3,absolute_error,log2,-1,432
 TAR,0,squared_error,sqrt,-1,432
-CREOSOTE,0,poisson,sqrt,-1,432
+CREOSOTE,0.15,poisson,sqrt,-1,432
 "DISINFECTANT, CARBOLIC",0.15,poisson,sqrt,-1,432
-MEDICINAL,0.3,absolute_error,sqrt,-1,432
-CHEMICAL,0.15,poisson,sqrt,-1,432
+MEDICINAL,0.3,poisson,sqrt,-1,432
+CHEMICAL,0.3,absolute_error,sqrt,-1,432
 BITTER,0.3,squared_error,log2,-1,432
 "SHARP, PUNGENT, ACID",0.3,poisson,log2,-1,432
-"SOUR, VINEGAR",0.15,poisson,log2,-1,432
-SAUERKRAUT,0.3,poisson,log2,-1,432
-AMMONIA,0.15,poisson,log2,-1,432
+"SOUR, VINEGAR",0,poisson,log2,-1,432
+SAUERKRAUT,0.3,absolute_error,sqrt,-1,432
+AMMONIA,0.3,friedman_mse,sqrt,-1,432
 URINE,0.3,absolute_error,log2,-1,432
 CAT URINE,0.3,absolute_error,sqrt,-1,432
 FISHY,0.3,absolute_error,sqrt,-1,432
 "KIPPERY,SMOKED FISH",0.15,absolute_error,log2,-1,432
 "SEMINAL, SPERM-LIKE",0.15,poisson,sqrt,-1,432
-NEW RUBBER,0,absolute_error,sqrt,-1,432
+NEW RUBBER,0,absolute_error,log2,-1,432
 SOOTY,0,poisson,sqrt,-1,432
 BURNT CANDLE,0.3,absolute_error,log2,-1,432
 KEROSENE,0.15,poisson,log2,-1,432
@@ -121,27 +121,27 @@ KEROSENE,0.15,poisson,log2,-1,432
 PAINT,0.3,poisson,sqrt,-1,432
 VARNISH,0.15,poisson,sqrt,-1,432
 POPCORN,0.3,poisson,sqrt,-1,432
-FRIED CHICKEN,0.3,poisson,log2,-1,432
+FRIED CHICKEN,0.15,absolute_error,log2,-1,432
 "MEATY ( COOKED,GOOD)",0.3,poisson,sqrt,-1,432
-SOUPY,0.3,squared_error,log2,-1,432
+SOUPY,0.15,absolute_error,sqrt,-1,432
 COOKED VEGETABLES,0.15,poisson,sqrt,-1,432
-RANCID,0.15,absolute_error,log2,-1,432
-SWEATY,0.3,absolute_error,log2,-1,432
-CHEESY,0.15,squared_error,log2,-1,432
-HOUSEHOLD GAS,0.15,absolute_error,log2,-1,432
-SULFIDIC,0.3,absolute_error,sqrt,-1,432
+RANCID,0.3,poisson,log2,-1,432
+SWEATY,0.3,poisson,log2,-1,432
+CHEESY,0.3,absolute_error,sqrt,-1,432
+HOUSEHOLD GAS,0.3,absolute_error,sqrt,-1,432
+SULFIDIC,0.3,absolute_error,log2,-1,432
 "GARLIC, ONION",0.3,absolute_error,log2,-1,432
-METALLIC,0.3,poisson,sqrt,-1,432
+METALLIC,0.15,poisson,log2,-1,432
 "BLOOD, RAW MEAT",0.15,poisson,sqrt,-1,432
 ANIMAL,0.3,absolute_error,log2,-1,432
-SEWER,0.3,poisson,log2,-1,432
-"PUTRID, FOUL, DECAYED",0,squared_error,log2,-1,432
+SEWER,0.3,absolute_error,log2,-1,432
+"PUTRID, FOUL, DECAYED",0.15,squared_error,log2,-1,432
 "FECAL, LIKE MANURE",0.3,absolute_error,log2,-1,432
 CADAVEROUS,0.3,absolute_error,log2,-1,432
 SICKENING,0,poisson,log2,-1,432
 "DRY, POWDERY",0.15,absolute_error,sqrt,-1,432
 CHALKY,0.3,absolute_error,log2,-1,432
-LIGHT,0,poisson,sqrt,-1,432
+LIGHT,0.15,absolute_error,log2,-1,432
 HEAVY,0.3,poisson,log2,-1,432
 "COOL,COOLING",0.3,poisson,sqrt,-1,432
 WARM,0.3,poisson,log2,-1,432

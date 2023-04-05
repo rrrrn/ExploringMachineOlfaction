@@ -1,22 +1,22 @@
-,kernel,C,degree,epsilon
-PLEASANTNESS,100,3,1,rbf
-EDIBLE ,100,3,1,rbf
-BAKERY ,100,3,1,rbf
-SWEET ,100,3,0.1,rbf
-FRUIT ,100,3,1,rbf
-FISH,10,3,1,rbf
-GARLIC ,100,3,0.1,rbf
-SPICES ,10,3,1,rbf
-COLD,100,3,1,rbf
-SOUR ,10,3,1,rbf
-BURNT ,10,3,1,rbf
-ACID ,1,3,1,rbf
-WARM ,10,3,1,rbf
-MUSKY ,10,3,1,rbf
-SWEATY ,100,3,1,rbf
-AMMONIA_URINOUS,10,3,1,rbf
-DECAYED,100,3,1,rbf
-WOOD ,100,3,1,rbf
-GRASS ,10,3,1,rbf
-FLOWER ,100,3,1,rbf
-CHEMICAL,100,3,0.01,rbf
+,kernel,C,epsilon
+PLEASANTNESS,100,0.1,rbf
+EDIBLE ,10,1,rbf
+BAKERY ,100,0.01,rbf
+SWEET ,100,0.1,rbf
+FRUIT ,100,1,rbf
+FISH,10,1,rbf
+GARLIC ,100,0.1,rbf
+SPICES ,10,0.1,rbf
+COLD,100,1,rbf
+SOUR ,10,1,rbf
+BURNT ,10,0.1,rbf
+ACID ,1,1,rbf
+WARM ,10,0.01,rbf
+MUSKY ,10,1,rbf
+SWEATY ,100,1,rbf
+AMMONIA_URINOUS,10,0.1,rbf
+DECAYED,100,1,rbf
+WOOD ,100,0.1,rbf
+GRASS ,10,0.01,rbf
+FLOWER ,100,1,rbf
+CHEMICAL,100,1,rbf

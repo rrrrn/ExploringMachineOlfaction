@@ -3,20 +3,20 @@ PLEASANTNESS,0,0.05,absolute_error,15,432
 EDIBLE ,0.15,0.05,squared_error,15,432
 BAKERY ,0.15,0.1,huber,10,432
 SWEET ,0.3,0.1,squared_error,10,432
-FRUIT ,0.3,0.05,huber,15,432
+FRUIT ,0,0.1,absolute_error,10,432
 FISH,0,0.05,huber,10,432
-GARLIC ,0,0.1,huber,15,432
+GARLIC ,0,0.1,absolute_error,15,432
 SPICES ,0,0.05,huber,15,432
 COLD,0.15,0.1,squared_error,10,432
-SOUR ,0.15,0.05,huber,15,432
-BURNT ,0.15,0.05,huber,5,432
-ACID ,0.3,0.1,huber,15,432
+SOUR ,0.15,0.05,huber,5,432
+BURNT ,0,0.05,absolute_error,15,432
+ACID ,0.3,0.05,huber,15,432
 WARM ,0.15,0.1,squared_error,10,432
 MUSKY ,0.15,0.05,squared_error,10,432
-SWEATY ,0,0.05,squared_error,10,432
+SWEATY ,0,0.1,absolute_error,10,432
 AMMONIA_URINOUS,0.15,0.05,huber,15,432
-DECAYED,0.15,0.05,squared_error,10,432
-WOOD ,0.15,0.1,squared_error,15,432
+DECAYED,0.15,0.1,huber,5,432
+WOOD ,0,0.05,quantile,15,432
 GRASS ,0,0.05,squared_error,15,432
-FLOWER ,0.15,0.05,squared_error,5,432
+FLOWER ,0,0.1,absolute_error,10,432
 CHEMICAL,0,0.1,squared_error,15,432

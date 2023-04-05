@@ -1,16 +1,16 @@
 ,n_neighbors,weights,n_jobs,p
 "FRUITY,CITRUS",-1,10,1,distance
-LEMON,-1,10,1,distance
+LEMON,-1,10,1,uniform
 GRAPEFRUIT,-1,10,1,uniform
 ORANGE,-1,10,1,distance
-"FRUITY,OTHER THAN CITRUS",-1,10,2,distance
-PINEAPPLE,-1,10,3,uniform
-GRAPE JUICE,-1,10,2,uniform
+"FRUITY,OTHER THAN CITRUS",-1,10,1,distance
+PINEAPPLE,-1,10,1,distance
+GRAPE JUICE,-1,10,3,uniform
 STRAWBERRY,-1,10,2,uniform
 "APPLE, FRUIT",-1,10,1,uniform
 PEAR,-1,10,2,distance
 "CANTALOUPE, HONEYDEW MELON",-1,10,1,distance
-PEACH FRUIT,-1,10,3,uniform
+PEACH FRUIT,-1,10,1,distance
 BANANA,-1,10,3,distance
 FLORAL,-1,10,1,uniform
 ROSE,-1,10,1,uniform
@@ -28,7 +28,7 @@ NAIL POLISH REMOVER,-1,10,1,uniform
 "NUTTY, WALNUT ETC.",-1,10,1,distance
 SPICY,-1,10,1,distance
 CLOVE,-1,10,1,distance
-CINNAMON,-1,10,1,distance
+CINNAMON,-1,10,1,uniform
 LAUREL LEAVES,-1,10,3,distance
 TEA LEAVES,-1,10,1,uniform
 SEASONING FOR MEAT,-1,10,1,uniform
@@ -36,14 +36,14 @@ BLACK PEPPER,-1,10,3,uniform
 GREEN PEPPER,-1,10,1,uniform
 DILL,-1,10,2,uniform
 CARAWAY,-1,10,1,distance
-"OAK WOOD,COGNAC",-1,10,3,uniform
+"OAK WOOD,COGNAC",-1,10,2,uniform
 "WOODY, RESINOUS",-1,10,3,uniform
-CEDARWOOD,-1,10,1,distance
+CEDARWOOD,-1,10,2,uniform
 MOTHBALLS,-1,10,1,uniform
 "MINTY, PEPPERMINT",-1,10,1,distance
 CAMPHOR,-1,10,3,uniform
 EUCALYPTUS,-1,10,3,uniform
-CHOCOLATE,-1,5,1,distance
+CHOCOLATE,-1,10,1,distance
 VANILLA,-1,10,1,distance
 SWEET,-1,10,1,distance
 MAPLE SYRUP,-1,10,1,distance
@@ -52,19 +52,19 @@ MALTY,-1,5,1,uniform
 RAISINS,-1,10,2,uniform
 MOLASSES,-1,10,1,distance
 COCONUT,-1,10,2,uniform
-"ANISE, LICORICE",-1,3,1,distance
+"ANISE, LICORICE",-1,10,1,distance
 ALCOHOLIC,-1,10,1,distance
 "ETHERISH, ANAESTHETIC",-1,10,1,uniform
 CLEANING FLUID,-1,10,1,uniform
 "GASOLINE, SOLVENT",-1,10,1,uniform
 "TURPENTINE, PINE OIL",-1,10,1,uniform
-GERANIUM LEAVES,-1,10,3,uniform
-CELERY,-1,10,1,uniform
+GERANIUM LEAVES,-1,10,2,uniform
+CELERY,-1,5,1,uniform
 FRESH GREEN VEGETABLES,-1,10,1,uniform
 CRUSHED WEEDS,-1,10,3,uniform
 CRUSHED GRASS,-1,10,2,uniform
 "HERBAL, GREEN,CUTGRASS",-1,10,1,uniform
-RAW CUCUMBER,-1,10,1,distance
+RAW CUCUMBER,-1,5,1,distance
 HAY,-1,10,2,distance
 GRAINY (AS GRAIN),-1,10,1,uniform
 YEASTY,-1,10,1,uniform
@@ -80,38 +80,38 @@ WET PAPER,-1,10,3,distance
 "WET WOOL,WET DOG",-1,10,2,distance
 DIRTY LINEN,-1,10,1,uniform
 STALE,-1,10,1,distance
-"MUSTY, EARTHY, MOLDY",-1,10,3,distance
+"MUSTY, EARTHY, MOLDY",-1,10,1,distance
 RAW POTATO,-1,10,1,uniform
 MOUSE,-1,10,1,uniform
 MUSHROOM,-1,5,1,uniform
-PEANUT BUTTER,-1,3,2,distance
+PEANUT BUTTER,-1,10,2,distance
 BEANY,-1,10,1,uniform
 "EGGY, FRESH EGGS",-1,10,1,uniform
-"BARK,BIRCHBARK",-1,10,1,distance
-CORK,-1,5,3,distance
+"BARK,BIRCHBARK",-1,10,2,distance
+CORK,-1,10,2,distance
 "BURNT,SMOKY",-1,10,1,distance
 FRESH TOBACCO SMOKE,-1,10,3,distance
 INCENSE,-1,10,1,uniform
-COFFEE,-1,10,2,distance
+COFFEE,-1,10,1,distance
 STALE TOBACCO SMOKE,-1,10,1,uniform
 BURNT PAPER,-1,10,1,distance
 BURNT MILK,-1,10,1,distance
 BURNT RUBBER,-1,10,1,distance
-TAR,-1,10,2,distance
+TAR,-1,10,1,uniform
 CREOSOTE,-1,5,3,uniform
 "DISINFECTANT, CARBOLIC",-1,10,1,uniform
 MEDICINAL,-1,10,1,uniform
 CHEMICAL,-1,10,1,uniform
 BITTER,-1,10,1,distance
-"SHARP, PUNGENT, ACID",-1,10,3,uniform
+"SHARP, PUNGENT, ACID",-1,10,1,uniform
 "SOUR, VINEGAR",-1,10,2,uniform
-SAUERKRAUT,-1,10,3,uniform
+SAUERKRAUT,-1,10,2,uniform
 AMMONIA,-1,10,1,uniform
 URINE,-1,10,1,uniform
 CAT URINE,-1,10,3,uniform
 FISHY,-1,10,3,uniform
 "KIPPERY,SMOKED FISH",-1,10,3,distance
-"SEMINAL, SPERM-LIKE",-1,10,3,distance
+"SEMINAL, SPERM-LIKE",-1,10,1,distance
 NEW RUBBER,-1,10,1,distance
 SOOTY,-1,10,1,distance
 BURNT CANDLE,-1,10,3,distance
@@ -136,11 +136,11 @@ METALLIC,-1,10,3,uniform
 ANIMAL,-1,10,1,uniform
 SEWER,-1,10,1,uniform
 "PUTRID, FOUL, DECAYED",-1,10,1,uniform
-"FECAL, LIKE MANURE",-1,10,1,uniform
+"FECAL, LIKE MANURE",-1,10,2,uniform
 CADAVEROUS,-1,10,1,uniform
 SICKENING,-1,10,1,uniform
 "DRY, POWDERY",-1,10,1,uniform
-CHALKY,-1,10,1,distance
+CHALKY,-1,10,3,distance
 LIGHT,-1,10,1,distance
 HEAVY,-1,10,3,uniform
 "COOL,COOLING",-1,10,1,uniform

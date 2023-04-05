@@ -8,7 +8,7 @@ FISH,False
 GARLIC ,False
 SPICES ,True
 COLD,False
-SOUR ,True
+SOUR ,False
 BURNT ,True
 ACID ,False
 WARM ,True

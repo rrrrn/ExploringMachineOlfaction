@@ -7,7 +7,7 @@ FRUIT ,-1,10,3,uniform
 FISH,-1,10,3,distance
 GARLIC ,-1,10,2,uniform
 SPICES ,-1,10,2,distance
-COLD,-1,10,3,uniform
+COLD,-1,10,2,uniform
 SOUR ,-1,10,2,uniform
 BURNT ,-1,10,3,uniform
 ACID ,-1,10,3,uniform
