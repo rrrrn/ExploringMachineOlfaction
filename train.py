@@ -2,8 +2,8 @@ from torch_geometric.loader import DataLoader
 import torch
 from utils.train_one_round import train, train_regr, test_regr
 from utils.split import split_regr
-from datamodule.datasets.kellerdataset import KellerDataset
-from datamodule.datasets.dravnieks_dataset import DravnieksDataset
+from data.datasets.kellerdataset import KellerDataset
+from data.datasets.dravnieks_dataset import DravnieksDataset
 import torch.nn.functional as F
 from pytorch_lightning.utilities.seed import seed_everything
 from sklearn.metrics import r2_score, mean_squared_error
@@ -21,9 +21,9 @@ if __name__ == "__main__":
     path = f"results/{datasetname}"
 
     if datasetname == "dravnieks":
-        dataset = DravnieksDataset(mode="cv")  # specify dataset of interest
+        dataset = DravnieksDataset(mode="all")  # specify dataset of interest
     elif datasetname == "keller":
-        dataset = KellerDataset(mode="cv")
+        dataset = KellerDataset(mode="all")
     else:
         raise ValueError
 
@@ -39,7 +39,7 @@ if __name__ == "__main__":
         edge_feature_dim=dataset.num_edge_features,
         hidden_channels=hidden_channels,
         pool_dim=pool_dim,
-        fully_connected_channels=[96, 63],
+        fully_connected_channels=fully_connected,
         output_channels=dataset.num_classes,
     )
 

@@ -1,15 +1,13 @@
 from torch_geometric.loader import DataLoader
 import torch
-from data.datasets.kellerdataset import KellerDataset, KellerTransferDataset
-from data.datasets.dravnieks_dataset import DravnieksDataset, DravTranferDataset
+from data.datasets.kellerdataset import KellerDataset
+from data.datasets.dravnieks_dataset import DravnieksDataset
 from tqdm import tqdm
 import numpy as np
 import pandas as pd
 from utils.split import split_geometric, split_regr
 from utils.train_one_round import callmodel, train_transfer, test_regr
 from models.nn.GENConv import GCN2Regressor, GCN2
-from sklearn.model_selection import train_test_split, KFold, RandomizedSearchCV
-from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor
 from sklearn.svm import SVR, LinearSVR
 from sklearn.metrics import r2_score, mean_squared_error
 from scipy.stats import pearsonr
@@ -17,22 +15,33 @@ from pytorch_lightning.utilities.seed import seed_everything
 import os
 from tqdm import tqdm
 
-if __name__=="__main__":
+if __name__ == "__main__":
     criterion = torch.nn.HuberLoss()
-    dataset = KellerDataset(mode="all")
-    dataset_target = DravnieksDataset(transfer="all")
-    num_epoch = 300
+    dataset = KellerDataset(
+        mode="all"
+    )  ## the dataset that the model originally is trained on
+    dataset_target = DravnieksDataset(
+        mode="all"
+    )  ## specifies the transfer learning target
+    num_epoch =1000
     batch_size = 16
-    n_epochs_stop = 75 ## set it to be smaller than the one in train.py: convolutional layer is pre-trained and freezed for use
+    n_epochs_stop = 100
     K = 5
     min_val_loss = np.inf
     path = f"results/keller/gnn_regr/"
     modeldir = os.listdir(path=path)
 
     seed_everything(432)
-    model = GCN2(node_feature_dim = dataset.num_node_features, edge_feature_dim= dataset.num_edge_features, hidden_channels=[15,20,27,36], pool_dim=175, fully_connected_channels=[96, 63], output_channels=dataset.num_classes)
+    model = GCN2Regressor(
+        node_feature_dim=dataset.num_node_features,
+        edge_feature_dim=dataset.num_edge_features,
+        hidden_channels=[15, 20, 27, 36],
+        pool_dim=175,
+        fully_connected_channels=[96, 63],
+        output_channels=dataset.num_classes,
+    )
     modelname = "1440"
-    model = torch.load(path+modelname+".pt")
+    model = torch.load(path + modelname + ".pt")
 
     ## freeze pre-trained parameters
     for name, param in model.named_parameters():
@@ -47,7 +56,7 @@ if __name__=="__main__":
 
     ## collect the last-layer param to update
     params_to_update = []
-    for name,param in model.named_parameters():
+    for name, param in model.named_parameters():
         if param.requires_grad == True:
             params_to_update.append(param)
 
@@ -62,11 +71,20 @@ if __name__=="__main__":
 
     ## k-fold training and testing
     for i, (train_ind, test_ind) in enumerate(split_train):
-        train_loader = DataLoader(dataset_target[train_ind], batch_size=batch_size, shuffle=False)
-        val_loader = DataLoader(dataset_target[test_ind], batch_size=batch_size, shuffle=False)
+        train_loader = DataLoader(
+            dataset_target[train_ind], batch_size=batch_size, shuffle=False
+        )
+        val_loader = DataLoader(
+            dataset_target[test_ind], batch_size=batch_size, shuffle=False
+        )
 
         for epoch in tqdm(range(1, num_epoch)):
-            train_transfer(model=model, loader=train_loader, criterion=criterion, params=params_to_update)
+            train_transfer(
+                model=model,
+                loader=train_loader,
+                criterion=criterion,
+                params=params_to_update,
+            )
             val_loss, val_error = test_regr(model, val_loader, criterion)
 
             if val_loss < min_val_loss:
@@ -74,15 +92,21 @@ if __name__=="__main__":
                 min_val_loss = val_loss
             else:
                 epochs_no_improve += 1
-            
+
             if epoch > 5 and epochs_no_improve == n_epochs_stop:
                 early_stop = True
-                train_loss , train_error = test_regr(model, test_loader, criterion=criterion)
+                train_loss, train_error = test_regr(
+                    model, test_loader, criterion=criterion
+                )
                 break
-            elif epoch+1==num_epoch:
-                train_loss , train_error = test_regr(model, test_loader, criterion=criterion)
+            elif epoch + 1 == num_epoch:
+                train_loss, train_error = test_regr(
+                    model, test_loader, criterion=criterion
+                )
             else:
                 continue
-        
+
         test_loss, test_error = test_regr(model, test_loader, criterion=criterion)
-        pd.DataFrame(test_error).to_csv(f"results/transfer_ml/gnn_reverse/{modelname}_fold{i}.csv")
+        pd.DataFrame(test_error).to_csv(
+            f"results/transfer_ml/gnn_reverse/{modelname}_fold{i}.csv"
+        )

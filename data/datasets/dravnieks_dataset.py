@@ -9,6 +9,7 @@ import numpy as np
 
 from . import ATOM_TYPES, BOND_TYPES
 
+
 class DravnieksDataset(InMemoryDataset):
     def __init__(
         self,
@@ -17,7 +18,7 @@ class DravnieksDataset(InMemoryDataset):
         pre_transform=None,
         pre_filter=None,
         mode="cv",
-        test = False
+        test=False,
     ):
         self.mode = mode
         self.test = test
@@ -36,7 +37,7 @@ class DravnieksDataset(InMemoryDataset):
             return ["transfer.pt"]
 
     def process(self):
-        df = pd.read_csv(self.raw_paths[0]).iloc[:,1:]
+        df = pd.read_csv(self.raw_paths[0]).iloc[:, 1:]
         df.dropna(inplace=True)
 
         # Read data into huge `Data` list.
@@ -56,11 +57,11 @@ class DravnieksDataset(InMemoryDataset):
             target_val = df[dravlabels].to_numpy()
         else:
             raise ValueError
-        
+
         if self.test:
             ovlp = np.load("data/overlapped.npy")
             for item in ovlp:
-                target = target[target.CID!= item]
+                target = target[target.CID != item]
 
         # process input molecules
         data_list = []
@@ -125,7 +126,7 @@ class DravnieksDataset(InMemoryDataset):
             x = torch.cat([x1.to(torch.float), x2], dim=-1)
 
             name = molecules_name_list[i]
-            y = torch.unsqueeze(torch.tensor(df[target_val].to_numpy()[i,:]),0)
+            y = torch.unsqueeze(torch.tensor(df[target_val].to_numpy()[i, :]), 0)
             # print(y.shape)
             data = Data(
                 x=x,

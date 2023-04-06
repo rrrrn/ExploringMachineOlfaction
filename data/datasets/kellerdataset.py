@@ -17,7 +17,7 @@ class KellerDataset(InMemoryDataset):
         transform=None,
         pre_transform=None,
         pre_filter=None,
-        mode="cv",
+        mode="all",
         test=False,
     ):
         self.mode = mode
@@ -31,7 +31,7 @@ class KellerDataset(InMemoryDataset):
 
     @property
     def processed_file_names(self):
-        if self.mode == "cv":
+        if self.mode == "all":
             return ["main.pt"]
         elif self.mode == "transfer":
             return ["transfer.pt"]
@@ -42,7 +42,7 @@ class KellerDataset(InMemoryDataset):
         cid = df["CID"]
 
         # Read data into huge `Data` list.
-        if self.mode == "cv":
+        if self.mode == "all":
             target_descriptor = target
         elif self.mode == "tranfer":
             kellerlabel = ["SWEET ", "GARLIC ", "SWEATY ", "DECAYED", "GRASS "]
@@ -56,7 +56,7 @@ class KellerDataset(InMemoryDataset):
         if self.test:
             ovlp = np.load("data/overlapped.npy")
             for item in ovlp:
-                target = target[cid!= item]
+                target = target[cid != item]
 
         target_val = target_descriptor.to_numpy()
 

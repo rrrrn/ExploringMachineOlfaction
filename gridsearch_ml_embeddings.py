@@ -21,16 +21,22 @@ if __name__ == "__main__":
     GNN-learned embeddings are learn
     """
     # model type
-    modelsets = [LinearRegression(),SVR(), KNeighborsRegressor(), GradientBoostingRegressor(), RandomForestRegressor()]
+    modelsets = [
+        LinearRegression(),
+        SVR(),
+        KNeighborsRegressor(),
+        GradientBoostingRegressor(),
+        RandomForestRegressor(),
+    ]
     randomseed = 432
-    datasetname = "dravnieks"
-    metricname = ["r2", "neg_mean_squared_error"]
+    datasetname = "keller"
+    metricname = ["explained_variance", "neg_mean_squared_error"]
     cvsplit = KFold(n_splits=5, shuffle=True, random_state=randomseed)
 
-    path = f"results/{datasetname}/gnn_regr" ## path to get learned embeddings
+    path = f"results/{datasetname}/gnn_regr"  ## path to get learned embeddings
     if not os.path.isfile(f"results/transfer_ml/embeddings_to_{datasetname}.csv"):
         learn_embeddings(datasetname=datasetname)
-    targetpath = f"results/{datasetname}/embeddings" ## path to save model details
+    targetpath = f"results/{datasetname}/embeddings"  ## path to save model details
     if not os.path.isdir(targetpath):
         os.makedirs(targetpath)
 
@@ -53,7 +59,9 @@ if __name__ == "__main__":
         logger.info("-" * 15 + "Start Session!" + "-" * 15)
 
         # load grid parameters
-        with open("configs/param_search/" + model_name.lower() + ".yaml", "r") as stream:
+        with open(
+            "configs/param_search/" + model_name.lower() + ".yaml", "r"
+        ) as stream:
             parameters = yaml.safe_load(stream)
 
         if not os.path.isdir(f"{targetpath}/best_models/{model_name}"):
@@ -65,27 +73,30 @@ if __name__ == "__main__":
 
         logger.info("{} regressor parameter grid search".format(model_name))
 
-    ## grid search
+        ## grid search
         bestscore, best_param = dict(), dict()
         for i in tqdm(range(len(y.columns))):
             descriptor_name = col[i]
             if "/" in descriptor_name:
                 descriptor_name = descriptor_name.replace("/", "_")
-            bestscore[descriptor_name]=np.zeros(2)
+            bestscore[descriptor_name] = np.zeros(2)
             grid_search = GridSearchCV(
                 ml_model,
                 parameters,
                 cv=cvsplit,
                 scoring=(metricname),
-                refit="r2",
-                n_jobs=-1
+                refit="explained_variance",
+                n_jobs=-1,
+                verbose=1,
             )
             grid_search.fit(X, y.iloc[:, i])
             results = grid_search.cv_results_
 
-            for i,scorer in enumerate(metricname):
+            for i, scorer in enumerate(metricname):
                 best_index = np.nonzero(results["rank_test_%s" % scorer] == 1)[0][0]
-                bestscore[descriptor_name][i] = results["mean_test_%s" % scorer][best_index]
+                bestscore[descriptor_name][i] = results["mean_test_%s" % scorer][
+                    best_index
+                ]
 
             best_param[descriptor_name] = list(grid_search.best_params_.values())
 

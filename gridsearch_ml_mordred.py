@@ -28,10 +28,10 @@ def prepare_data(dataset="dravnieks", numpy_form=True, test=False):
         [dict] -- {data set, target}
     """
     data = pd.read_csv(f"data/{dataset.lower()}/raw/descriptors.csv").iloc[:, 1:]
-    target = pd.read_csv(
-            f"data/{dataset.lower()}/raw/{dataset.lower()}_pa.csv"
-        ).iloc[:, 1:]
-    
+    target = pd.read_csv(f"data/{dataset.lower()}/raw/{dataset.lower()}_pa.csv").iloc[
+        :, 1:
+    ]
+
     if dataset.lower() == "dravnieks":
         target.drop(columns=["IsomericSMILES", "IUPACName"], inplace=True)
     elif dataset.lower() == "keller":
@@ -114,9 +114,15 @@ if __name__ == "__main__":
     """
 
     ## model type
-    modelsets = [LinearRegression(),SVR(), KNeighborsRegressor(), GradientBoostingRegressor(), RandomForestRegressor()]
-    datasetname = "dravnieks"  # specify the dataset, either "dravnieks" or "keller"
-    metricname = ["r2", "neg_mean_squared_error"]
+    modelsets = [
+        LinearRegression(),
+        SVR(),
+        KNeighborsRegressor(),
+        GradientBoostingRegressor(),
+        RandomForestRegressor(),
+    ]
+    datasetname = "keller"  # specify the dataset, either "dravnieks" or "keller"
+    metricname = ["explained_variance", "neg_mean_squared_error"]
     randomseed = 432
     cvsplit = KFold(n_splits=5, shuffle=True, random_state=randomseed)
     for ml_model in modelsets:
@@ -132,7 +138,7 @@ if __name__ == "__main__":
         y = data["target"]
         col = y.columns
 
-    # X_train, y_train, X_test, y_test = train_test_split(X, y, train_size =.75, random_state = randomseed)
+        # X_train, y_train, X_test, y_test = train_test_split(X, y, train_size =.75, random_state = randomseed)
 
         logger = log(path="logs/", file=modelname.lower() + ".logs")
         logger.info("-" * 15 + "Start Session!" + "-" * 15)
@@ -142,7 +148,7 @@ if __name__ == "__main__":
             parameters = yaml.safe_load(stream)
 
         if not os.path.isdir(f"{path}/best_models/{modelname}"):
-            os.makedirs(f"{path}/best_models/")
+            os.makedirs(f"{path}/best_models/{modelname}")
         if not os.path.isdir(f"{path}/best_params/"):
             os.makedirs(f"{path}/best_params/")
         if not os.path.isdir(f"{path}/metrics/"):
@@ -151,27 +157,30 @@ if __name__ == "__main__":
         logger.info("{} regressor parameter grid search".format(modelname))
 
         # start grid search
-        bestscore,best_param = dict(), dict()
+        bestscore, best_param = dict(), dict()
         for i in tqdm(range(len(y.columns))):
             descriptor_name = col[i]
             if "/" in descriptor_name:
                 descriptor_name = descriptor_name.replace("/", "_")
-            
-            bestscore[descriptor_name]=np.zeros(2)
+
+            bestscore[descriptor_name] = np.zeros(2)
             grid_search = GridSearchCV(
                 ml_model,
                 parameters,
                 cv=cvsplit,
                 scoring=(metricname),
-                refit="r2",
-                n_jobs=-1
+                refit="explained_variance",
+                n_jobs=-1,
+                verbose=1,
             )
             grid_search.fit(X, y.iloc[:, i])
             results = grid_search.cv_results_
 
-            for i,scorer in enumerate(metricname):
+            for i, scorer in enumerate(metricname):
                 best_index = np.nonzero(results["rank_test_%s" % scorer] == 1)[0][0]
-                bestscore[descriptor_name][i] = results["mean_test_%s" % scorer][best_index]
+                bestscore[descriptor_name][i] = results["mean_test_%s" % scorer][
+                    best_index
+                ]
 
             best_param[descriptor_name] = list(grid_search.best_params_.values())
 
