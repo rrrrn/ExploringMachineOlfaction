@@ -1,4 +1,4 @@
-# ExploringMachineOlfaction
+# Exploring Machine Olfaction
 
 ## Dataset
 This study investigate machine learning for modeling continuous *descriptor applicability* from molecular representations. Two prediction tasks based on psychochemical olfactory dataset are of interests, which mainly differ in human participants' domain knowledge level in olfaction field:
