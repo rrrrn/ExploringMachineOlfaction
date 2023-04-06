@@ -1,23 +1,18 @@
-from sklearn import metrics
-from tqdm import tqdm
 import pandas as pd
 import numpy as np
-import yaml
 from sklearn.linear_model import Ridge
 from sklearn.svm import SVR
 from sklearn.multioutput import RegressorChain
 from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor
 from sklearn.metrics import (
     mean_squared_error,
-    r2_score,
     explained_variance_score,
     mean_absolute_percentage_error,
 )
 from scipy.stats import pearsonr
-import warnings
 from joblib import load
 
-from gridsearch_ml_mordred import prepare_data, log
+from gridsearch_ml_mordred import prepare_data
 
 
 if __name__ == "__main__":

@@ -8,6 +8,12 @@ from utils.sigmoid import Sigmoid
 
 
 class GNN(torch.nn.Module):
+    """
+    Graph Neural Network for classification
+    four semi-supervised graph convolution layers (GCN) from <https://arxiv.org/pdf/1609.02907.pdf>
+    max graph pool layer followed by a three-layer fully-connected prediction networks
+    """
+
     def __init__(
         self,
         input_channels,
@@ -16,6 +22,14 @@ class GNN(torch.nn.Module):
         fully_connected_channels,
         output_channels,
     ):
+        """
+        Args:
+            input_channels (int): Size of each input sample
+            output_channels (int): Size of each output sample
+            hidden_channels (tuple or list): input and output size of each GCN layer
+            pool_dim (int): size of the pooling layer
+            fully_connected_channels (tuple or list): dimension for fully-connected prediction layers
+        """
         super(GNN, self).__init__()
         self.conv1 = GCNConv(input_channels, hidden_channels[0])
         self.conv2 = GCNConv(hidden_channels[0], hidden_channels[1])
@@ -47,11 +61,14 @@ class GNN(torch.nn.Module):
         self.activate = SELU()
         self.pool = GlobalAddPooling()
 
-    def forward(self, x, edge_index, batch):
+    def forward(self, atom_feat, edge_index, batch):
+        """
+        update nodes using atom feature and edge index information for every batch
+        """
         # 1. Obtain node embeddings
         readout = 0
 
-        x = self.conv1(x, edge_index)
+        x = self.conv1(atom_feat, edge_index)
         x = self.activate(x)
         x = self.max_graph_pool(x, edge_index)
         readout += F.softmax(self.lin_1(x), dim=-1)

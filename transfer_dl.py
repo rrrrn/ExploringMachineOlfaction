@@ -5,12 +5,9 @@ from data.datasets.dravnieks_dataset import DravnieksDataset
 from tqdm import tqdm
 import numpy as np
 import pandas as pd
-from utils.split import split_geometric, split_regr
-from utils.train_one_round import callmodel, train_transfer, test_regr
-from models.nn.GENConv import GCN2Regressor, GCN2
-from sklearn.svm import SVR, LinearSVR
-from sklearn.metrics import r2_score, mean_squared_error
-from scipy.stats import pearsonr
+from utils.split import split_regr
+from utils.train_one_round import train_transfer, test_regr
+from models.nn.GENConv import GCN2Regressor
 from pytorch_lightning.utilities.seed import seed_everything
 import os
 from tqdm import tqdm
@@ -23,12 +20,12 @@ if __name__ == "__main__":
     dataset_target = DravnieksDataset(
         mode="all"
     )  ## specifies the transfer learning target
-    num_epoch =1000
+    num_epoch = 1000
     batch_size = 16
     n_epochs_stop = 100
     K = 5
     min_val_loss = np.inf
-    path = f"results/keller/gnn_regr/"
+    path = f"results/dravnieks/gnn_regr/"
     modeldir = os.listdir(path=path)
 
     seed_everything(432)
@@ -40,7 +37,7 @@ if __name__ == "__main__":
         fully_connected_channels=[96, 63],
         output_channels=dataset.num_classes,
     )
-    modelname = "1440"
+    modelname = "1413"
     model = torch.load(path + modelname + ".pt")
 
     ## freeze pre-trained parameters

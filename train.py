@@ -1,12 +1,11 @@
 from torch_geometric.loader import DataLoader
 import torch
-from utils.train_one_round import train, train_regr, test_regr
+from utils.train_one_round import train_regr, test_regr
 from utils.split import split_regr
 from data.datasets.kellerdataset import KellerDataset
 from data.datasets.dravnieks_dataset import DravnieksDataset
 import torch.nn.functional as F
 from pytorch_lightning.utilities.seed import seed_everything
-from sklearn.metrics import r2_score, mean_squared_error
 from tqdm import tqdm
 import os
 import numpy as np

@@ -5,7 +5,7 @@ import os
 from sklearn.model_selection import KFold
 from sklearn.linear_model import LinearRegression
 from sklearn.svm import SVR
-from sklearn.model_selection import GridSearchCV, train_test_split
+from sklearn.model_selection import GridSearchCV
 from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor
 from sklearn.neighbors import KNeighborsRegressor
 import warnings
