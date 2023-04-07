@@ -32,10 +32,10 @@ keller
 -  `descriptors.csv` calculated a full list of Mordred descriptor for all relevant chemicals used in Keller's study.
 -  `keller_pu.csv` and `keller_pa.csv` derive the percetage usage and percentage applicability (*descriptor applicability*) from individual odor label ratings in the raw data.
 ```
- ┣ overlapped.npy
- ┣ preprocessing.ipynb
- ┣ retained_descriptor.txt
- ┗ retained_descriptors.npy
+overlapped.npy
+preprocessing.ipynb
+retained_descriptor.txt
+retained_descriptors.npy
  ```
  - `overlapped.npy`: CIDs for molecules used in both prediction tasks.
  - `retained_descriptor.*`: final set of Mordred input feature names after selection and imputation.
