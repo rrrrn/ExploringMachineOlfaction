@@ -14,12 +14,12 @@ from tqdm import tqdm
 
 if __name__ == "__main__":
     criterion = torch.nn.HuberLoss()
-    dataset = KellerDataset(
+    dataset = DravnieksDataset(
         mode="all"
     )  ## the dataset that the model originally is trained on
-    dataset_target = DravnieksDataset(
-        mode="all"
-    )  ## specifies the transfer learning target
+    dataset_target = KellerDataset(
+        mode="all", test=True
+    )  ## specifies the transfer learning target, exclude overlapped molecules
     num_epoch = 1000
     batch_size = 16
     n_epochs_stop = 100
@@ -105,5 +105,5 @@ if __name__ == "__main__":
 
         test_loss, test_error = test_regr(model, test_loader, criterion=criterion)
         pd.DataFrame(test_error).to_csv(
-            f"results/transfer_ml/gnn_reverse/{modelname}_fold{i}.csv"
+            f"results/transfer_ml/gnn/{modelname}_fold{i}.csv"
         )
