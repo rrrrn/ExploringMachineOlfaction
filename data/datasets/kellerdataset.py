@@ -31,10 +31,14 @@ class KellerDataset(InMemoryDataset):
 
     @property
     def processed_file_names(self):
-        if self.mode == "all":
+        if self.mode == "all" and self.test == False:
             return ["main.pt"]
-        elif self.mode == "transfer":
+        elif self.mode == "all" and self.test == True:
+            return ["main_test.pt"]
+        elif self.mode == "transfer" and self.test == False:
             return ["transfer.pt"]
+        else:
+            return ["transfer_test.pt"]
 
     def process(self):
         target = pd.read_csv(self.raw_paths[0]).iloc[:, 1:]

@@ -31,10 +31,14 @@ class DravnieksDataset(InMemoryDataset):
 
     @property
     def processed_file_names(self):
-        if self.mode == "cv":
+        if self.mode == "all" and self.test == False:
             return ["main.pt"]
-        else:
+        elif self.mode == "all" and self.test == True:
+            return ["main_test.pt"]
+        elif self.mode == "transfer" and self.test == False:
             return ["transfer.pt"]
+        else:
+            return ["transfer_test.pt"]
 
     def process(self):
         df = pd.read_csv(self.raw_paths[0]).iloc[:, 1:]
