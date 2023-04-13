@@ -34,17 +34,20 @@ if __name__ == "__main__":
     cvsplit = KFold(n_splits=5, shuffle=True, random_state=randomseed)
 
     path = f"results/{datasetname}/gnn_regr"  ## path to get learned embeddings
-    if not os.path.isfile(f"results/transfer_ml/embeddings_to_{datasetname}.csv"):
-        learn_embeddings(datasetname=datasetname)
-    targetpath = f"results/{datasetname}/embeddings"  ## path to save model details
-    if not os.path.isdir(targetpath):
-        os.makedirs(targetpath)
 
     ## retrieve learned embeddings and predicting target
     if datasetname == "keller":
         gnnmodel = "1440"
     elif datasetname == "dravnieks":
         gnnmodel = "1413"
+
+    ## if embeddings are not computed, compute them
+    if not os.path.isfile(f"{path}/{gnnmodel}_embeddings.cs"):
+        learn_embeddings(datasetname=datasetname)
+    targetpath = f"results/{datasetname}/embeddings"  ## path to save model details
+    if not os.path.isdir(targetpath):
+        os.makedirs(targetpath)
+
     X = pd.read_csv(f"{path}/{gnnmodel}_embeddings.csv").iloc[:, 1:]
     y = pd.read_csv(f"{path}/{gnnmodel}_target.csv").iloc[:, 1:]
     data = prepare_data(datasetname, numpy_form=False)
